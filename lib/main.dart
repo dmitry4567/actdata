@@ -1,5 +1,8 @@
+import 'package:actdata/sign_in/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'flutter_flow/utils.dart';
 
 Future<void> main() async {
@@ -41,10 +44,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-        routerConfig: _router,
-        title: 'ActData',
-        theme: ThemeData(brightness: Brightness.light),
-        themeMode: _themeMode);
+    return MultiProvider(
+      providers: [
+        BlocProvider(create: (_) => LoginBloc()),
+      ],
+      child: MaterialApp.router(
+          routerConfig: _router,
+          title: 'ActData',
+          theme: ThemeData(brightness: Brightness.light),
+          themeMode: _themeMode),
+    );
   }
 }

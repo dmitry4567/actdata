@@ -8,7 +8,7 @@ export 'api_manager.dart' show ApiCallResponse;
 
 final dioClient = Dio(
   BaseOptions(
-    baseUrl: "",
+    baseUrl: "https://localhost:8000",
     connectTimeout: 30000,
     receiveTimeout: 3000,
   ),
