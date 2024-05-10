@@ -1,4 +1,5 @@
 import 'package:actdata/flutter_flow/nav/nav.dart';
+import 'package:actdata/measurement/measurement_history_widget.dart';
 import 'package:flutter/material.dart';
 
 class NavBarWidget extends StatefulWidget {
@@ -23,9 +24,9 @@ class _NavBarPageState extends State<NavBarWidget> {
   void initState() {
     super.initState();
 
-    // _tabs = {
-    //   'Home': HomeWidget(),
-    // };
+    _tabs = {
+      'Home': MeasurementHistoryWidget(),
+    };
 
     _currentPageName = widget.initialPage;
   }
