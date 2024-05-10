@@ -8,7 +8,7 @@ export 'api_manager.dart' show ApiCallResponse;
 
 final dioClient = Dio(
   BaseOptions(
-    baseUrl: "",
+    baseUrl: "https://localhost:8000",
     connectTimeout: 30000,
     receiveTimeout: 3000,
   ),
@@ -62,6 +62,28 @@ class SignInCall {
     );
   }
 }
+
+class GetMeasurementHistory {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+  }) {
+    final body = '''
+    {
+      "token": "$token",
+    }''';
+
+    return ApiManager.instance.makeApiCall(
+      apiPath: '/getHistory',
+      callType: ApiCallType.POST,
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      dioClient: dioClient,
+    );
+  }
+}
+
 
 class ApiPagingParams {
   int nextPageNumber = 0;
