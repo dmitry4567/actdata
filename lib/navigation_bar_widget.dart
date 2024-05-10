@@ -1,4 +1,5 @@
 import 'package:actdata/flutter_flow/nav/nav.dart';
+import 'package:actdata/home/home.dart';
 import 'package:flutter/material.dart';
 
 class NavBarWidget extends StatefulWidget {
@@ -23,9 +24,9 @@ class _NavBarPageState extends State<NavBarWidget> {
   void initState() {
     super.initState();
 
-    // _tabs = {
-    //   'Home': HomeWidget(),
-    // };
+    _tabs = {
+      'Home': HomePage(),
+    };
 
     _currentPageName = widget.initialPage;
   }
