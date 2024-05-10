@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:actdata/app_state.dart';
 import 'package:actdata/flutter_flow/nav/serialization_util.dart';
+import 'package:actdata/home/home.dart';
 import 'package:actdata/navigation_bar_widget.dart';
 import 'package:actdata/sign_in/sign_in_widget.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class AppStateNotifier extends ChangeNotifier {
 }
 
 GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
-      initialLocation: (FFAppState().userAuthToken == "") ? "/signIn" : '/',
+      initialLocation: (FFAppState().userAuthToken == "") ? "/home" : '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) => const NavBarWidget(initialPage: 'Project'),
@@ -39,6 +40,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'project',
               builder: (context, params) =>
                   const NavBarWidget(initialPage: 'Project'),
+            ),
+            FFRoute(
+              name: 'Home',
+              path: 'home',
+              builder: (context, params) => const HomePage(),
             ),
           ]
               .map(
